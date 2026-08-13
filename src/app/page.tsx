@@ -1,8 +1,9 @@
 'use client';
 
-import React, { useState, useRef, useEffect } from 'react';
+import React, { useState, useRef, useEffect, ChangeEvent, ReactNode } from 'react';
 import Image from 'next/image';
 import QRCode from 'qrcode';
+import type { JSX } from 'react';
 
 export default function Home() {
   const [name, setName] = useState('');
@@ -345,7 +346,7 @@ export default function Home() {
                   type="text"
                   placeholder="e.g. Arpan Mahanty"
                   value={name}
-                  onChange={(e) => setName(e.target.value)}
+                  onChange={(e: React.ChangeEvent<HTMLInputElement>) => setName(e.target.value)}
                   className="w-full bg-[#f4f1e8] text-black placeholder-zinc-500 rounded-xl p-2.5 text-xs font-semibold focus:outline-none focus:ring-2 focus:ring-[#facc15]"
                 />
               </div>
@@ -356,7 +357,7 @@ export default function Home() {
                   type="text"
                   placeholder="e.g. UI/UX Designer"
                   value={role}
-                  onChange={(e) => setRole(e.target.value)}
+                  onChange={(e: React.ChangeEvent<HTMLInputElement>) => setRole(e.target.value)}
                   className="w-full bg-[#0d2115] border border-[#1d3d28] rounded-xl p-2.5 text-xs text-white focus:outline-none focus:border-[#facc15]"
                 />
               </div>
@@ -367,7 +368,7 @@ export default function Home() {
                   type="text"
                   placeholder="e.g. arpan_c0des"
                   value={github}
-                  onChange={(e) => setGithub(e.target.value)}
+                  onChange={(e: React.ChangeEvent<HTMLInputElement>) => setGithub(e.target.value)}
                   className="w-full bg-[#0d2115] border border-[#1d3d28] rounded-xl p-2.5 text-xs text-white focus:outline-none focus:border-[#facc15]"
                 />
               </div>
@@ -378,7 +379,7 @@ export default function Home() {
                   type="text"
                   placeholder="e.g. mahantyarpan21@gm..."
                   value={linkedin}
-                  onChange={(e) => setLinkedin(e.target.value)}
+                  onChange={(e: React.ChangeEvent<HTMLInputElement>) => setLinkedin(e.target.value)}
                   className="w-full bg-[#0d2115] border border-[#1d3d28] rounded-xl p-2.5 text-xs text-white focus:outline-none focus:border-[#facc15]"
                 />
               </div>
@@ -417,6 +418,7 @@ export default function Home() {
                   setName('');
                   setRole('Full-Stack Builder');
                   setImageSrc(null);
+                  
                 }}
                 className="bg-white hover:bg-zinc-100 text-black font-bold py-3 px-8 rounded-full text-xs flex items-center gap-2 transition border border-zinc-300"
               >
